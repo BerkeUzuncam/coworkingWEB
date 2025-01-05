@@ -116,7 +116,7 @@ span {
   border: 2px solid #e50914;
   border-radius: 8px;
   font-size: 19px;
-  color: black;
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 1px;
@@ -131,11 +131,11 @@ span {
 
 .btn-box a:nth-child(2) {
   background: transparent;
-  color: #e50914;
+  color: #fff;
 }
 
 .btn-box a:nth-child(2):hover {
-  color: black;
+  color: #fff;
 }
 
 .btn-box a:nth-child(2)::before {
@@ -202,9 +202,6 @@ span {
 
 /* upcoming movie */
 .upcoming-movie {
-  background: url(../images/upcoming-bg.png) no-repeat;
-  background-size: cover;
-  background-position: center;
   padding: 100px 30px;
 }
 .upcoming-movie .headerr {
@@ -274,7 +271,7 @@ span {
   gap: 0.5rem;
 }
 .movie-carousel .card .img img {
-  width: 70%;
+  width: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -299,7 +296,7 @@ span {
   font-size: 14px;
 }
 .movie-carousel .card .footer {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
@@ -347,7 +344,7 @@ span {
 .same .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 100%;
+  width: 80;
   justify-content: center;
   row-gap: 50px;
   column-gap: 30px;
@@ -359,7 +356,7 @@ span {
   background-color: black;
 }
 .movie-card .card .img img {
-  width: 70%;
+  width: 100%;
   object-fit: cover;
   border-radius: 6px;
 }
@@ -438,7 +435,7 @@ span {
 }
 
 .pricing-card {
-  background-color: #1c1f36;
+  background-color: #2d2d2d;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -481,6 +478,12 @@ span {
 }
 
 /* Pricing Button */
+.pricing-header {
+  text-align: center;
+  font-size: 40px;
+  font-family: "Orbitron", sans-serif;
+  color: #fff;
+}
 .pricing-button {
   background-color: #e50914;
   color: #fff;
