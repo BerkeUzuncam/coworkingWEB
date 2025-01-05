@@ -33,6 +33,17 @@ body {
   font-weight: 600;
   font-family: "Orbitron", sans-serif;
 }
+.heading {
+  font-size: 3rem;
+  font-family: "Orbitron", sans-serif;
+  padding-top: 5rem;
+  text-align: center;
+}
+
+span {
+  color: #e50914;
+  font-family: "Orbitron", sans-serif;
+}
 
 .navbar a {
   font-size: 18px;
@@ -189,6 +200,218 @@ body {
   width: 100%;
 }
 
+/* upcoming movie */
+.upcoming-movie {
+  background: url(../images/upcoming-bg.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 30px;
+}
+.upcoming-movie .headerr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.upcoming-movie .headerr .subtitle small {
+  font-size: 12px;
+  color: #e50914;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.upcoming-movie .headerr .subtitle h4 {
+  font-size: 40px;
+  font-family: "Orbitron", sans-serif;
+  color: #fff;
+}
+
+.upcoming-movie .movie-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.wrapper {
+  width: 80%;
+  position: relative;
+}
+
+.wrapper .movie-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 15px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 30px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.movie-carousel::-webkit-scrollbar {
+  display: none;
+}
+.movie-carousel.no-transition {
+  scroll-behavior: auto;
+}
+.movie-carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+.movie-carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+.movie-carousel :where(.card) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.movie-carousel .card {
+  scroll-snap-align: start;
+  list-style: none;
+  background: transparent;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.movie-carousel .card .img img {
+  width: 70%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.movie-carousel .card .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+.movie-carousel .card .title a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.movie-carousel .card .title a:hover {
+  color: #e50914;
+}
+.movie-carousel .card .title span {
+  color: #e50914;
+  font-weight: 600;
+  font-size: 14px;
+}
+.movie-carousel .card .footer {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.movie-carousel .card .footer span {
+  color: #e50914;
+  padding: 3px 10px;
+  border: 2px solid #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+.movie-carousel .card .footer .time-rating span {
+  color: #fff;
+  padding: 0px;
+  border: none;
+}
+.movie-carousel .card .footer .time-rating i {
+  color: #e50914;
+  margin-right: 0.3rem;
+}
+
+.top-movie {
+  padding: 100px 30px;
+}
+.top-movie .headerrr,
+.tv-series .headerrr {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.top-movie .headerrr small,
+.tv-series .headerrr small {
+  color: #e50914;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+.top-movie .headerrr h4,
+.tv-series .headerrr h4 {
+  font-size: 40px;
+  font-family: "Orbitron", sans-serif;
+  color: #fff;
+}
+
+.same .wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  justify-content: center;
+  row-gap: 50px;
+  column-gap: 30px;
+  margin-top: 3rem;
+  background-color: black;
+}
+.same .wrapper .card {
+  width: 80%;
+  background-color: black;
+}
+.movie-card .card .img img {
+  width: 70%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.movie-card .card .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+.movie-card .card .title a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.movie-card .card .title a:hover {
+  color: #e2d703;
+}
+.movie-card .card .title span {
+  color: #e2d703;
+  font-weight: 600;
+  font-size: 14px;
+}
+.movie-card .card .footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.movie-card .card .footer span {
+  color: #e2d703;
+  padding: 3px 10px;
+  border: 2px solid #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+.movie-card .card .footer .time-rating span {
+  color: #fff;
+  padding: 0px;
+  border: none;
+}
+.movie-card .card .footer .time-rating i {
+  color: #e2d703;
+  margin-right: 0.3rem;
+}
+
+.tv-series {
+  background: url(../images/tv-series-bg.jpg) no-repeat;
+  background-size: cover;
+  padding: 100px 30px;
+}
+
 /* Section Title */
 .section-title {
   font-size: 1.5rem;
@@ -198,127 +421,12 @@ body {
   border-left: 5px solid #e50914;
 }
 
-/* Trending Section */
-.trending-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
 .card {
   background-color: #1c1f36;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card img {
-  width: 100%;
-  display: block;
-  height: auto;
-}
-
-.card-info {
-  padding: 15px;
-}
-
-.card-info h3 {
-  font-size: 1.2rem;
-  margin: 0 0 10px;
-}
-
-.card-info p {
-  font-size: 0.9rem;
-  margin: 5px 0 10px;
-  color: #aaa;
-}
-
-/* Badges */
-.badge {
-  display: inline-block;
-  padding: 5px 10px;
-  margin-right: 5px;
-  margin-top: 5px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  color: #fff;
-  background-color: #444;
-}
-
-.badge.action {
-  background-color: #f05454;
-}
-
-.badge.sci-fi {
-  background-color: #0096c7;
-}
-
-.badge.comedy {
-  background-color: #f4a261;
-}
-
-.badge.adventure {
-  background-color: #e76f51;
-}
-
-.badge.thriller {
-  background-color: #9a031e;
-}
-
-.badge.drama {
-  background-color: #6a0572;
-}
-
-.badge.history {
-  background-color: #b5838d;
-}
-
-.badge.horror {
-  background-color: #212121;
-}
-
-/* Ratings */
-.rating {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #f0b90b;
-}
-
-.heading {
-  font-size: 3rem;
-  font-family: "Orbitron", sans-serif;
-  padding-top: 5rem;
-  text-align: center;
-}
-
-span {
-  color: #e50914;
-  font-family: "Orbitron", sans-serif;
-}
-
-.about-content h3 {
-  font-size: 2rem;
-  font-family: "Orbitron", sans-serif;
-}
-
-.about-content p {
-  font-size: 1rem;
-  margin: 2rem 0rem 3rem;
-}
-
-.btn-box.btns {
-  display: inline-block;
-  width: 345px;
-  height: 50px;
-  margin-bottom: 6rem;
 }
 
 /* Pricing Section */
@@ -386,7 +494,7 @@ span {
 }
 
 .pricing-button:hover {
-  background-color: #ff3b3b;
+  background-color: #e50914;
 }
 
 /* Responsive Design */
@@ -596,37 +704,6 @@ span {
     width: 20px;
     height: 20px;
     font-size: 12px;
-  }
-  .about-img {
-    width: 14rem;
-    height: 14rem;
-  }
-  .about-content h3 {
-    font-size: 1rem;
-  }
-  .about-content p {
-    font-size: 0.7rem;
-  }
-  .btn-box.btns {
-    width: 180px;
-  }
-  .services-column .title {
-    font-size: 1.3rem;
-  }
-  .services-column .services-box {
-    border-left: 0.2rem solid #00abf0;
-  }
-  .services-content .content {
-    padding: 0.5rem;
-  }
-  .services-content .content .year {
-    font-size: 0.6rem;
-  }
-  .services-content .content h3 {
-    font-size: 0.8rem;
-  }
-  .services-content .content p {
-    font-size: 0.6rem;
   }
 }
 @media (max-width: 991px) {
