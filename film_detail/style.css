@@ -7,8 +7,11 @@
 }
 
 body {
+  background-image: url("../images/pexels-tima-miroshnichenko-7991179.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   font-family: "Exo 2", sans-serif; /* Verander dit naar een modern Google-font zoals 'Poppins' indien gewenst */
-  background-color: #000; /* Donkere achtergrond */
   color: #fff; /* Witte tekst als contrast */
   line-height: 1.6;
   padding: 20px;
