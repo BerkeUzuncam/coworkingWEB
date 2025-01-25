@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Streambox | Movies Anytime, Anywhere</title>
-   
+   <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -81,19 +81,19 @@
           enjoy—your cinematic journey starts here!"
         </p>
         <div class="btn-box">
-          <a href="#movies"> See movies</a>
+          <a href="#movie"> See movies</a>
           <a href="contact.html"> Contact us</a>
         </div>
       </div>
-
-      <div class="home-sci">
-        <a href="#"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/xovabot/"
-          ><i class="bx bxl-instagram"></i
-        ></a>
-        <a href="#"><i class="bx bxl-linkedin"></i></a>
-      </div>
-      <span class="home-imgHover"></span>
+      <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const header = document.querySelector('.header');
+  
+        menuIcon.addEventListener('click', () => {
+          header.classList.toggle('menu-active');
+        });
+      </script>
+    
     </section>
 
     <!-- upcoming movie section starts  -->
@@ -115,7 +115,7 @@
                 /></a>
               </figure>
               <div class="title">
-                <a href="movie-detail.html"><h4>bambi: the reckoning</h4></a>
+                <a href="/film_detail/bambi.html"><h4>Bambi: the reckoning</h4></a>
                 <span>2025</span>
               </div>
               <div class="footer">
@@ -128,12 +128,12 @@
             
             <li class="card">
               <figure class="img">
-                <a href="movie-detail.html"
+                <a href="./film_detail/pooniverse.html"
                   ><img src="./foto/poonivershe.jpg" alt="Poonivershe"
                 /></a>
               </figure>
               <div class="title">
-                <a href="movie-detail.html"><h4>Poohniverse: Monsters Assemble</h4></a>
+                <a href="/film_detail/pooniverse.html"><h4>Poohniverse: Monsters Assemble</h4></a>
                 <span>2025</span>
               </div>
               <div class="footer">
@@ -196,10 +196,10 @@
         <ul class="wrapper">
           <li class="card">
             <figure class="img">
-              <a href="movie-detail.html"><img src="foto/Smile2.jpg" alt="Smile 2" /></a>
+              <a href="./film_detail/smile.html"><img src="foto/Smile2.jpg" alt="Smile 2" /></a>
             </figure>
             <div class="title">
-              <a href="movie-detail.html"><h4>Smile 2</h4></a>
+              <a href="/film_detail/smile.html"><h4>Smile 2</h4></a>
               <span>2024</span>
             </div>
             <div class="footer">
@@ -322,6 +322,22 @@
               </div>
             </div>
           </li>
+          <li class="card">
+            <figure class="img">
+              <a href="movie-detail.html"><img src="./foto/stranger.avif" alt="Stranger Things" /></a>
+            </figure>
+            <div class="title">
+              <a href="movie-detail.html"><h4>Stranger Things </h4></a>
+              <span>2016</span>
+            </div>
+            <div class="footer">
+              <span>4K</span>
+              <div class="time-rating">
+                <span><i class="fa-regular fa-clock"></i> Seasons: 4</span>
+                <span><i class="fa-solid fa-star"></i> 8.7</span>
+              </div>
+            </div>
+          </li>
         </ul>
       </article>
     </div>
@@ -381,22 +397,6 @@
             <div class="time-rating">
               <span><i class="fa-regular fa-clock"></i> Seasons: 5</span>
               <span><i class="fa-solid fa-star"></i> 8.3</span>
-            </div>
-          </div>
-        </li>
-        <li class="card">
-          <figure class="img">
-            <a href="movie-detail.html"><img src="./foto/stranger.avif" alt="Stranger Things" /></a>
-          </figure>
-          <div class="title">
-            <a href="movie-detail.html"><h4>Stranger Things </h4></a>
-            <span>2016</span>
-          </div>
-          <div class="footer">
-            <span>4K</span>
-            <div class="time-rating">
-              <span><i class="fa-regular fa-clock"></i> Seasons: 4</span>
-              <span><i class="fa-solid fa-star"></i> 8.7</span>
             </div>
           </div>
         </li>
