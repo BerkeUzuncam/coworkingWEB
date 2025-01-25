@@ -157,6 +157,105 @@ span {
   width: 100%;
   color: #e50914;
 }
+
+/* Responsive voor tablets */
+@media (max-width: 768px) {
+  .header {
+    padding: 1.5rem 7%; /* Iets minder padding voor tablets */
+  }
+
+  .logo {
+    font-size: 22px; /* Logo iets kleiner */
+  }
+
+  .home {
+    padding: 0 7%; /* Inhoud iets smaller */
+    justify-content: center; /* Zorgt ervoor dat de inhoud gecentreerd blijft */
+    text-align: center; /* Centraal uitlijnen van alle tekst */
+  }
+
+  .home-content {
+    max-width: 90%; /* Laat de inhoud bijna de volledige breedte benutten */
+  }
+
+  .home-content h1 {
+    font-size: 42px; /* Kleinere titel voor tablets */
+  }
+
+  .home-content h3 {
+    font-size: 26px; /* Subtitle wordt iets kleiner */
+  }
+
+  .home-content p {
+    font-size: 15px; /* Tekst wordt iets kleiner */
+    line-height: 1.6; /* Verbeter de leesbaarheid */
+    margin: 15px 0 30px; /* Verminder de marges rondom de tekst */
+  }
+
+  .home-content .btn-box {
+    flex-direction: row; /* Knoppen blijven naast elkaar */
+    justify-content: center; /* Knoppen worden gecentreerd */
+    gap: 15px; /* Voeg meer ruimte toe tussen de knoppen */
+    width: 100%; /* Laat de knoppen zich aanpassen aan de breedte */
+    height: auto;
+  }
+
+  .btn-box a {
+    width: 140px; /* Knoppen krijgen een kleinere breedte */
+    font-size: 16px; /* Maak de knoptekst iets kleiner */
+    height: 45px; /* Verminder de hoogte van de knoppen */
+  }
+}
+
+/* Responsive voor mobiele apparaten */
+@media (max-width: 576px) {
+  .header {
+    padding: 1rem 5%;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .home {
+    padding: 0 5%;
+    justify-content: center; /* Zorgt ervoor dat de inhoud gecentreerd blijft */
+    text-align: center; /* Centraal uitlijnen van alle tekst */
+  }
+
+  .home-content {
+    max-width: 100%; /* Laat de inhoud de beschikbare breedte benutten */
+  }
+
+  .home-content h1 {
+    font-size: 32px; /* Kleinere titel voor mobiele apparaten */
+  }
+
+  .home-content h3 {
+    font-size: 20px; /* Subtitle wordt kleiner */
+  }
+
+  .home-content p {
+    font-size: 14px; /* Maak de tekst kleiner */
+    line-height: 1.5; /* Verbeter de leesbaarheid */
+    margin: 15px 0 30px; /* Verminder de marges rondom de tekst */
+  }
+
+  .home-content .btn-box {
+    flex-direction: column; /* Zet de knoppen onder elkaar */
+    align-items: center;
+    gap: 10px; /* Voeg ruimte toe tussen de knoppen */
+    width: 100%; /* Laat de knoppen zich aanpassen aan de breedte */
+    height: auto;
+  }
+
+  .btn-box a {
+    width: 100%; /* Knoppen nemen de volledige breedte in */
+    font-size: 16px; /* Maak de knoptekst iets kleiner */
+    height: 45px; /* Verminder de hoogte van de knoppen */
+  }
+}
+
 /* Tablet en Mobiel (max-width: 768px) */
 @media (max-width: 768px) {
   .navbar {
