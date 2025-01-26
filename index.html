@@ -43,6 +43,15 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body>
     <header class="header">
@@ -370,22 +379,7 @@
             </div>
           </div>
         </li>
-        <li class="card">
-          <figure class="img">
-            <a href="movie-detail.html"><img src="foto/prison.jpg" alt="prisonbreak" /></a>
-          </figure>
-          <div class="title">
-            <a href="movie-detail.html"><h4>Prison Break</h4></a>
-            <span>2005</span>
-          </figure>
-          <div class="footer">
-            <span>HD</span>
-            <div class="time-rating">
-              <span><i class="fa-regular fa-clock"></i> Seasons: 5</span>
-              <span><i class="fa-solid fa-star"></i> 8.3</span>
-            </div>
-          </div>
-        </li>
+    
         <li class="card">
           <figure class="img">
             <a href="/film_detail/bambi.html"><img src="./foto/stranger.avif" alt="Stranger Things" /></a>
@@ -458,6 +452,247 @@
     </section>
   </div>
 
+  <!-- google maps and weather api section design -->
+  <div class="main-container">
+    <section id="map-container">
+      <div id="map"></div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_MAP_API_KEY"></script>
+      <script>
+        function initMap() {
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 51.06, lng: -3.72 },
+            zoom: 8
+          });
+        }
+      </script>
+      <script
+        async
+        defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASORp7VucTts2Rvp99-m6MmoME1mluaw8&callback=initMap"
+      ></script>
+    </section>
+  
+    <section id="Weather">
+      <div class="container">
+        <div class="wrapper">
+          <header>
+            <form id="weather-form">
+              <input
+                type="search"
+                placeholder="Voer uw stad in ..."
+                required
+                id="location-input"
+                value=""
+              />
+              <input type="submit" value="Search" />
+            </form>
+          </header>
+          <hr />
+  
+          <section>
+            <div class="weather-information">
+              <h1 id="current-country"></h1>
+              <div class="current-location">
+                <h3 id="current-city"></h3>
+                <span id="current-time"></span>
+              </div>
+              <div class="current-temperature">
+                <div class="current-temperature">
+                  <img id="current-temperature-icon" src="" alt="Weer icoon">
+                  <p id="current-temperature" class="temperature--info"></p>
+                </div>
+                <div class="current-temperature">
+                  <p id="current-condition"></p>
+                </div>
+              </div>
+              <span id="current-date"><em></em></span>
+            </div>
+          </section>
+        </div>
+      </div>
+      <script>
+        let currentCityEl = document.querySelector("#current-city");
+let currentCountryEl = document.querySelector("#current-country");
+let currentTimeEl = document.querySelector("#current-time");
+let currentDateEl = document.querySelector("#current-date");
+let locationInputEl = document.querySelector("#location-input");
+let weatherForm = document.querySelector("#weather-form");
+let currentIcon = document.querySelector("#current-temperature-icon");
+let currentTempEl = document.querySelector("#current-temperature");
+let currentConditionEl = document.querySelector("#current-condition");
+
+///Use API to call data to the weather application
+
+function displayTemperature(res) {
+  // console.log(res.data.country);
+  let humidityEl = document.querySelector("#current-humidity");
+  let windEl = document.querySelector("#current-wind");
+
+  if (!res.data.city) {
+    currentCountryEl.innerHTML = "";
+    currentCityEl.innerHTML = "📍Not found";
+
+    currentTempEl.innerHTML = ``;
+
+    currentConditionEl.innerHTML = "";
+
+    humidityEl.innerHTML = "";
+    windEl.innerHTML = "";
+  } else {
+    currentCountryEl.innerHTML = res.data.country;
+    currentCityEl.innerHTML = `📍${res.data.city}`;
+
+    let icon = res.data.condition.icon_url;
+    currentIcon.src = icon;
+
+    let temp = Math.floor(res.data.temperature.current);
+    currentTempEl.innerHTML = `${temp}°C`;
+
+    currentConditionEl.innerHTML = res.data.condition.description;
+
+    let humidity = res.data.temperature.humidity;
+    humidityEl.innerHTML = `${humidity} %`;
+
+    let wind = res.data.wind.speed;
+    windEl.innerHTML = `${wind} km/h`;
+
+
+  }
+  let date = res.data.time * 1000
+  currentTimeEl.innerHTML = formatDate(date);
+
+  getForecast(res.data.city);
+}
+
+//Include the city name in the weather application
+
+function searchCity(city) {
+  let apiKey = "o63c6afa36060dtb755bc2adb841329a";
+
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+
+  // https://api.shecodes.io/weather/v1/current?query=Nairobi&key=o63c6afa36060dtb755bc2adb841329a&units=metric`
+  // https://shecodes-assets.s3.amazonaws.com/api/weather
+  https: axios.get(apiUrl).then(displayTemperature);
+}
+
+function displayCity(event) {
+  event.preventDefault();
+  // console.log(locationInputEl.value);
+  searchCity(locationInputEl.value);
+}
+
+weatherForm.addEventListener("submit", displayCity);
+
+searchCity("Gent");
+
+//Changing the date and time on the weather application
+
+function formatDate(){
+  let date = new Date();
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let hour = date.getHours();
+  let minutes = date.getMinutes();
+  let year = date.getFullYear();
+  let month = months[date.getMonth()];
+  let currentDate = date.getDate();
+
+  console.log(`${hour} ${minutes}`);
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  } else {
+    minutes;
+  }
+
+  // var ampm = hour >= 12 ? "pm" : "am";
+
+  if (hour >= 12) {
+    minutes += ` PM`;
+  } else {
+    minutes += ` AM`;
+  }
+  let longFormatDate = `${currentDate} ${month}, ${year}`;
+  let shortFormatDate = `${hour}:${minutes}`;
+
+  currentDateEl.innerHTML = longFormatDate
+
+  return shortFormatDate;
+}
+
+
+setInterval(function () {
+  formatDate();
+}, 60000);
+
+
+
+
+function getForecast(city) {
+  let forecastApiKey = "o63c6afa36060dtb755bc2adb841329a";
+  let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastApiKey}&units=metric`;
+
+  axios.get(forecastApiUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
+
+  return day;
+
+}
+
+function displayForecast(res) {
+  let response = res.data.daily;
+  console.log(response);
+
+  console.log(response.time * 1000);
+  let forecastHtml = document.querySelector("#weather-forecast");
+
+  let forecast = "";
+
+  let forecastLocationEl = document.querySelector("#forecast-location");
+  forecastLocationEl.innerHTML = `${res.data.city} Weekly Forecast`;
+
+  response.forEach(function (day, index) {
+    if (index < 5) {
+      forecast += `
+      <div class="daily-weather-forecast">
+        <p class="forecast--day">${formatDay(day.time)}</p>
+        <img class="forecast--icon" src="${day.condition.icon_url}"/>
+        <p>
+          <span class="max-temperature-forecast">${Math.floor(
+            day.temperature.maximum
+          )} /</span>
+          <span class="min-temperature-forecast">${Math.floor(
+            day.temperature.minimum
+          )}</span>
+        </p>
+      </div>`;
+    }
+  });
+
+  forecastHtml.innerHTML = forecast;
+}
+      </script>
+
+      
+
 </main>
     <!--footer design-->
 
@@ -467,18 +702,8 @@
       <div class="footer-left">
         <h3>Streambox</h3>
 
-        <p class="footer-links">
-          <a href="#">Home</a>
-          |
-          <a href="#">Movies</a>
-          |
-          <a href="#">Series</a>
-          
-          <a href="#">Pricing</a>
-        </p>
-
         <p class="footer-company-name">
-          Copyright © 2024 <strong>Streambox</strong> All rights reserved
+          Copyright © 2025 <strong>Streambox</strong> All rights reserved
         </p>
       </div>
 
@@ -491,7 +716,7 @@
       <div class="footer-right">
         <p class="footer-company-about">
           <span>About Streambox</span>
-          <strong>Streambox</strong> tekst tekst tekst tekst tekst tekst tekst
+          <strong>Streambox</strong> 
         </p>
       </div>
     </footer>

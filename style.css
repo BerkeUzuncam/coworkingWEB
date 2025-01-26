@@ -298,8 +298,10 @@ span {
 
   .headerr {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column; /* Zorgt dat de items onder elkaar staan */
+    align-items: center; /* Centreert de items horizontaal */
+    justify-content: center; /* Centreert de items verticaal */
+    text-align: center; /* Zorgt ervoor dat tekst gecentreerd is */
 
     .subtitle {
       small {
@@ -362,6 +364,16 @@ span {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px; /* Ronde hoeken */
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+    }
+
+    /* Hover-effect voor kaarten */
+    .card:hover {
+      transform: scale(1.05); /* Zoom de kaart in */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Voeg een subtiele schaduw toe */
     }
 
     .card {
@@ -372,10 +384,21 @@ span {
       align-items: flex-start;
       gap: 0.5rem;
 
-      .img img {
-        inline-size: 100%;
-        object-fit: cover;
-        border-radius: 10px;
+      .img {
+        overflow: hidden; /* Zorgt ervoor dat de afbeelding niet uit de container komt */
+        border-radius: 10px; /* Ronde hoeken */
+
+        img {
+          inline-size: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+          transition: transform 0.3s ease-in-out; /* Smooth transition voor inzoomen */
+        }
+
+        /* Hover-effect voor afbeelding */
+        &:hover img {
+          transform: scale(1.1); /* Zoom de afbeelding in */
+        }
       }
 
       .title {
@@ -432,18 +455,19 @@ span {
     }
   }
 }
-
 /* Top Movie Section */
 .top-movie {
   padding-block: 100px;
   padding-inline: 30px;
+  text-align: center; /* Zorgt ervoor dat tekst in het midden wordt uitgelijnd */
 }
 
 .top-movie .headerrr,
 .tv-series .headerrr {
-  text-align: start;
+  text-align: center; /* Tekst in het midden */
   display: flex;
   flex-direction: column;
+  align-items: center; /* Centreer de flex-items */
 }
 
 .top-movie .headerrr small,
@@ -465,22 +489,48 @@ span {
 .same {
   .wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Drie kolommen */
     inline-size: 80%;
     justify-content: center;
+    align-items: center; /* Centreer de grid-items */
+    margin: 0 auto; /* Centreer de wrapper */
     row-gap: 50px;
     column-gap: 30px;
     margin-block-start: 3rem;
     background-color: black;
 
     .card {
-      inline-size: 80%;
+      inline-size: 100%;
       background-color: black;
+      margin: auto; /* Zorgt ervoor dat de kaarten gecentreerd zijn */
+      overflow: hidden; /* Zorgt ervoor dat de afbeelding netjes blijft binnen de container */
+      border-radius: 10px; /* Ronde hoeken */
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover-effect */
+
+      /* Hover-effect voor de gehele kaart */
+      &:hover {
+        transform: scale(1.05); /* Zoom de kaart in */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Voeg een schaduw toe */
+      }
 
       .img img {
         inline-size: 100%;
         object-fit: cover;
-        border-radius: 6px;
+        border-radius: 10px; /* Zelfde hoeken als de kaart */
+        transition: transform 0.3s ease-in-out; /* Smooth zoom-in effect */
+      }
+
+      /* Hover-effect voor afbeelding */
+      &:hover .img img {
+        transform: scale(1.1); /* Zoom de afbeelding iets meer in */
+      }
+
+      .title,
+      .footer {
+        position: relative; /* Zorgt ervoor dat de tekst zichtbaar blijft */
+        z-index: 2; /* Zorgt dat de tekst bovenop de afbeelding blijft */
+        color: #fff; /* Tekstkleur */
+        transition: color 0.3s ease-in-out; /* Optionele overgang voor kleurverandering */
       }
 
       .title {
@@ -541,6 +591,7 @@ span {
 .tv-series {
   padding-block: 100px;
   padding-inline: 30px;
+  text-align: center; /* Tekst in het midden */
 }
 
 /* Section Title */
@@ -656,6 +707,49 @@ span {
 .footer-distributed .footer-right {
   display: inline-block;
   vertical-align: top;
+}
+
+/* maps and weather */
+/* Container styling */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Ruimte tussen de secties */
+  padding: 50px;
+}
+
+/* Google Maps styling */
+#map-container {
+  flex: 1; /* Laat de kaart zoveel mogelijk ruimte innemen */
+  max-width: 50%; /* Beperk de breedte tot maximaal 50% */
+}
+
+#map {
+  margin-top: 1.75rem;
+  width: 70%;
+  height: 300px; /* Pas de hoogte van de kaart aan */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Weather styling */
+#Weather {
+  flex: 1; /* Laat de weather-sectie evenveel ruimte innemen als de kaart */
+  max-width: 70%; /* Beperk de breedte tot maximaal 50% */
+}
+
+.weather-information {
+  margin: 10px auto;
+  padding: 20px;
+  background: #2d2d2d;
+
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper {
+  display: block;
 }
 
 /* Footer left */
