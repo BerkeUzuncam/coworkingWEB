@@ -12,6 +12,85 @@ body {
   background: black;
   font-family: "Exo 2", sans-serif;
 }
+/*pop up*/
+button {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.button-el {
+  padding: 1rem 2rem;
+  margin: 0 2rem;
+  border-radius: 2.5rem;
+}
+
+.all .show {
+  background-color: #ffffff;
+  color: #333333; /* Zachte contrastkleur */
+  padding: 2rem;
+  position: absolute;
+  max-width: 40rem;
+  top: 50%;
+  left: 50%;
+  border-radius: 1.25rem;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.all .show .remove {
+  font-size: 1.5rem;
+  color: #ff0000; /* Rode kleur voor duidelijke actie */
+  text-align: right;
+  float: right;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.all .show .remove:hover {
+  color: #990000;
+}
+
+.show h1 {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111111;
+}
+
+.show p {
+  font-size: 1rem;
+  line-height: 1.8;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333333;
+}
+
+.flour-el {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.85); /* Donkere overlay */
+  z-index: 9;
+}
+
+.all {
+  display: none;
+}
 
 .header {
   position: absolute;
@@ -593,6 +672,89 @@ span {
   padding-inline: 30px;
   text-align: center; /* Tekst in het midden */
 }
+/* Originele stijl blijft intact boven 768px */
+
+/* Mediaquery voor tablets (786px) */
+@media screen and (max-width: 786px) {
+  .top-movie,
+  .tv-series {
+    padding-block: 80px;
+    padding-inline: 20px;
+  }
+
+  .same .wrapper {
+    grid-template-columns: repeat(2, 1fr); /* Twee kolommen op tablets */
+    inline-size: 90%;
+    row-gap: 40px;
+    column-gap: 20px;
+  }
+
+  .same .wrapper .card {
+    inline-size: 90%; /* Maak de kaart iets kleiner */
+    border-radius: 8px; /* Iets minder ronde hoeken */
+  }
+
+  .same .wrapper .card .title {
+    flex-direction: column; /* Titel en link onder elkaar */
+    align-items: flex-start;
+  }
+
+  .same .wrapper .card .footer {
+    flex-direction: column; /* Voeterruimte onder elkaar */
+    align-items: flex-start;
+  }
+
+  .same .wrapper .card .footer .time-rating {
+    margin-block-start: 0.5rem;
+  }
+}
+
+/* Mediaquery voor mobiele apparaten (576px) */
+@media screen and (max-width: 576px) {
+  .top-movie,
+  .tv-series {
+    padding-block: 60px;
+    padding-inline: 15px;
+  }
+
+  .same .wrapper {
+    grid-template-columns: 1fr; /* Eén kolom op mobiele apparaten */
+    inline-size: 100%;
+    row-gap: 30px;
+    column-gap: 0;
+  }
+
+  .same .wrapper .card {
+    inline-size: 65%; /* Maak de kaart nog iets kleiner voor mobiel */
+    margin: 0 auto; /* Zorg dat de kaarten gecentreerd blijven */
+    border-radius: 6px; /* Nog iets minder ronde hoeken */
+  }
+
+  .same .wrapper .card .title {
+    font-size: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .same .wrapper .card .footer {
+    font-size: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-block-start: 0.3rem;
+  }
+
+  .same .wrapper .card .footer span {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-width: 1px;
+  }
+
+  .same .wrapper .card .footer .time-rating span {
+    font-size: 10px;
+    padding: 0;
+    border: none;
+  }
+}
 
 /* Section Title */
 .section-title {
@@ -610,6 +772,8 @@ span {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s;
 }
+
+/* Originele stijl blijft intact boven 768px */
 
 /* Pricing Section */
 .pricing-section {
@@ -684,6 +848,10 @@ span {
 .pricing-button:hover {
   background-color: #e50914;
 }
+.pricing-button a {
+  text-decoration: none;
+  color: #fff;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -691,23 +859,59 @@ span {
     flex-direction: column;
     align-items: center;
   }
+  .pricing-card {
+    width: 90%;
+  }
+  .pricing-card h3 {
+    font-size: 1.3rem;
+  }
+  .price {
+    font-size: 1.8rem;
+  }
+  .price span {
+    font-size: 0.9rem;
+  }
+  .features li {
+    font-size: 0.8rem;
+  }
+  .pricing-header {
+    font-size: 35px;
+  }
+  .pricing-button {
+    font-size: 0.9rem;
+  }
 }
 
-.footer-distributed {
-  background-color: black;
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-  font: bold 16px sans-serif;
-  padding: 30px 40px 50px 40px;
+@media (max-width: 576px) {
+  .pricing-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .pricing-card {
+    width: 95%;
+  }
+  .pricing-card h3 {
+    font-size: 1.1rem;
+  }
+  .price {
+    font-size: 1.6rem;
+  }
+  .price span {
+    font-size: 0.8rem;
+  }
+  .features li {
+    font-size: 0.7rem;
+  }
+  .pricing-header {
+    font-size: 30px;
+  }
+  .pricing-button {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
 }
 
-.footer-distributed .footer-left,
-.footer-distributed .footer-center,
-.footer-distributed .footer-right {
-  display: inline-block;
-  vertical-align: top;
-}
 /* Maps and Weather Container */
 .main-container {
   display: flex;
@@ -788,169 +992,14 @@ span {
   }
 }
 
-/* Footer left */
-
-.footer-distributed .footer-left {
-  width: 30%;
-  position: relative;
-  left: 7.5%;
-}
-
-.footer-distributed h3 {
-  color: #ffffff;
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.6rem;
-  margin: 0;
-}
-
-.footer-distributed h3 span {
-  color: #e50914;
-}
-
-/* Footer links */
-
-.footer-distributed .footer-links {
-  color: #ffffff;
-  margin: 20px 0 12px;
-}
-
-.footer-distributed .footer-links a {
-  display: inline-block;
-  line-height: 1.8;
-  text-decoration: none;
-  color: inherit;
-}
-
-.footer-distributed .footer-company-name {
-  color: #8f9296;
-  font-size: 14px;
-  font-weight: normal;
-  margin: 0;
-}
-
-/* Footer Center */
-
-.footer-distributed .footer-center {
-  width: 35%;
-  position: relative;
-  left: 5%;
-}
-
-.footer-distributed .footer-center i {
-  background-color: rgba(27, 31, 34, 0.8);
-  color: #ffffff;
-  font-size: 25px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
+/* Footer */
+footer {
+  background-color: #1a1a1a;
+  color: #bbb;
   text-align: center;
-  line-height: 42px;
-  margin: 10px 15px;
-  vertical-align: middle;
-}
-
-.footer-distributed .footer-center .bx-envelope {
-  line-height: 38px;
-}
-
-.footer-distributed .footer-center p {
-  display: inline-block;
-  color: #ffffff;
-  vertical-align: middle;
-  margin: 0;
-}
-
-.footer-distributed .footer-center p span {
-  display: block;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 2;
-}
-
-.footer-distributed .footer-center p a {
-  color: #e50914;
-  font-style: italic;
-  text-decoration: none;
-}
-
-/* Footer Right */
-
-.h {
-  width: 85%;
-  height: 2.5px;
-  border: 0 none;
-  padding: 0%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 30px;
-  margin-bottom: 60px;
-  background-color: whitesmoke;
-}
-
-.footer-distributed .footer-right {
-  width: 30%;
-}
-
-.footer-distributed .footer-company-about {
-  line-height: 20px;
-  color: #92999f;
-  font-size: 13px;
-  font-weight: normal;
-  margin: 0;
-}
-
-.footer-distributed .footer-company-about span {
-  display: block;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.footer-links a:hover {
-  color: #e50914;
-}
-
-@media (max-width: 880px) {
-  .footer-distributed .footer-left,
-  .footer-distributed .footer-center,
-  .footer-distributed .footer-right {
-    display: block;
-    width: 100%;
-    margin-bottom: 40px;
-    text-align: center;
-  }
-  .footer-distributed .footer-center i {
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-distributed .footer-left,
-  .footer-distributed .footer-center,
-  .footer-distributed .footer-right {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 767px) {
-  .footer-distributed .footer-left,
-  .footer-distributed .footer-center,
-  .footer-distributed .footer-right {
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: 880px) {
-  .footer-distributed .footer-left,
-  .footer-distributed .footer-center,
-  .footer-distributed .footer-right {
-    display: block;
-    width: 100%;
-    margin-bottom: 40px;
-    text-align: center;
-  }
-  .footer-distributed .footer-center i {
-    margin-left: 0;
-  }
+  padding: 40px 20px;
+  margin-top: 60px;
+  border-top: 2px solid #fff;
+  animation: fadeIn 1s ease-in-out;
+  font-family: "Exo 2", sans-serif;
 }

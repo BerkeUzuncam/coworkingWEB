@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -132,6 +134,7 @@ form .action input {
   margin-right: 10px;
 }
 
+form .action input,
 .sendbutton {
   background: transparent;
   border-radius: 4px;
@@ -142,10 +145,12 @@ form .action input {
   height: 44px;
   letter-spacing: 3px;
   outline: 0;
-  padding: 0 20px 0 22px;
-  margin-right: 10px;
+  padding: 0 20px;
+  width: 100%; /* Zorg ervoor dat beide knoppen gelijke breedte hebben */
+  margin-bottom: 10px; /* Voeg wat marge toe tussen de knoppen */
 }
 
+form .action input:hover,
 .sendbutton:hover {
   background: rgba(255, 255, 255, 0.075);
 }
@@ -166,19 +171,95 @@ form .icons a:hover {
   background: rgba(255, 255, 255, 0.075);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  /* Voor tablets */
+  form {
+    width: 80%;
+    padding: 40px 20px;
+  }
+
+  form .title h2 {
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+
   form .half {
     flex-direction: column;
   }
+
   form .half .item {
     width: 100%;
   }
+
   form .action {
-    display: flex;
     flex-direction: column;
+    align-items: center;
   }
+
   form .action input {
-    margin-bottom: 10px;
     width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .navbar a {
+    font-size: 16px;
+    margin-left: 25px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Voor mobiele apparaten */
+  form {
+    width: 90%;
+    padding: 30px 15px;
+  }
+
+  form .title h2 {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  form .half .item {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  form label {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  form .half .item input {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  form .full textarea {
+    height: 150px;
+    font-size: 15px;
+  }
+
+  form .action input {
+    font-size: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  .header {
+    padding: 1rem 5%;
+  }
+
+  .logo {
+    font-size: 20px;
   }
 }
