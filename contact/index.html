@@ -40,13 +40,21 @@
         <a href="/index.html">Pricing</a>
         <a href="#contact">Contact</a>
       </nav>
+      <script>
+        const menuIcon = document.getElementById("menu-icon");
+        const header = document.querySelector(".header");
+
+        menuIcon.addEventListener("click", () => {
+          header.classList.toggle("menu-active");
+        });
+      </script>
     </header>
     <form
       action="https://formsubmit.co/berke.uzuncam04@gmail.com"
       method="POST"
     >
       <div class="title">
-        <h2>CONTACT</h2>
+        <h1>CONTACT</h1>
       </div>
       <div class="half">
         <div class="item">

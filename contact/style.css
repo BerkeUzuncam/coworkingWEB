@@ -52,6 +52,47 @@ body {
 .navbar a.active {
   color: #e50914;
 }
+#menu-icon {
+  font-size: 3.6rem;
+  color: #e50914;
+  cursor: pointer;
+  display: none;
+}
+
+/* Tablet en Mobiel (max-width: 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    display: none; /* Verberg de navigatie standaard */
+    flex-direction: column; /* Zorg dat de links onder elkaar staan */
+    align-items: center;
+    background-color: black; /* Achtergrondkleur van het menu */
+    position: absolute;
+    top: 100%; /* Onder de header */
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 100;
+    transition: all 0.3s ease-in-out; /* Smooth animatie bij tevoorschijn komen */
+  }
+
+  .menu-active .navbar {
+    display: flex; /* Maak de navigatie zichtbaar */
+  }
+
+  .navbar a {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  #menu-icon {
+    display: block; /* Zorg ervoor dat het menu-icoon zichtbaar is */
+    cursor: pointer;
+    color: #fff;
+  }
+}
 
 form {
   background: rgba(27, 31, 34, 0.8);
@@ -62,7 +103,7 @@ form {
   padding: 55px 30px;
 }
 
-form .title h2 {
+form .title h1 {
   letter-spacing: 6px;
   border-bottom: 1px solid #e50914;
   display: inline-block;
@@ -178,7 +219,7 @@ form .icons a:hover {
     padding: 40px 20px;
   }
 
-  form .title h2 {
+  form .title h1 {
     font-size: 20px;
     letter-spacing: 4px;
   }
@@ -214,7 +255,7 @@ form .icons a:hover {
     padding: 30px 15px;
   }
 
-  form .title h2 {
+  form .title h1 {
     font-size: 18px;
     letter-spacing: 3px;
   }

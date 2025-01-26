@@ -995,11 +995,10 @@ span {
 /* Footer */
 footer {
   background-color: #1a1a1a;
-  color: #bbb;
+  color: #fff;
   text-align: center;
   padding: 40px 20px;
   margin-top: 60px;
   border-top: 2px solid #fff;
-  animation: fadeIn 1s ease-in-out;
   font-family: "Exo 2", sans-serif;
 }
