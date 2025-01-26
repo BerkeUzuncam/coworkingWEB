@@ -708,48 +708,84 @@ span {
   display: inline-block;
   vertical-align: top;
 }
-
-/* maps and weather */
-/* Container styling */
+/* Maps and Weather Container */
 .main-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center; /* Centreer de gehele container horizontaal */
+  align-items: flex-start; /* Zorgt dat items bovenaan uitlijnen */
   gap: 20px; /* Ruimte tussen de secties */
   padding: 50px;
+  flex-wrap: wrap; /* Zorgt dat de items kunnen 'wrappen' naar een nieuwe regel */
+}
+/* Maps and Weather Container */
+.main-container {
+  display: flex;
+  justify-content: center; /* Centreert de gehele container horizontaal */
+  align-items: center; /* Centreert de items verticaal */
+  gap: 20px; /* Ruimte tussen de secties */
+  padding: 50px;
+  flex-wrap: wrap; /* Laat items naar een nieuwe regel gaan als nodig */
+  text-align: center; /* Zorgt voor gecentreerde tekst binnen de container */
 }
 
 /* Google Maps styling */
 #map-container {
-  flex: 1; /* Laat de kaart zoveel mogelijk ruimte innemen */
-  max-width: 50%; /* Beperk de breedte tot maximaal 50% */
+  flex: 1; /* Laat de kaart flexibel aanpassen */
+  max-width: 600px; /* Maximale breedte */
+  width: 100%; /* Past de breedte aan de container aan */
+  text-align: center;
 }
 
 #map {
-  margin-top: 1.75rem;
-  width: 70%;
-  height: 300px; /* Pas de hoogte van de kaart aan */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin: 0 auto; /* Centreer de kaart horizontaal */
+  width: 100%; /* Volledige breedte */
+  max-width: 500px; /* Maximale breedte */
+  height: 300px; /* Hoogte van de kaart */
+  border-radius: 10px; /* Ronde hoeken */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Schaduw */
 }
 
 /* Weather styling */
 #Weather {
-  flex: 1; /* Laat de weather-sectie evenveel ruimte innemen als de kaart */
-  max-width: 70%; /* Beperk de breedte tot maximaal 50% */
+  flex: 1; /* Laat de weather-sectie flexibel aanpassen */
+  max-width: 600px; /* Maximale breedte */
+  width: 100%; /* Past de breedte aan de container aan */
 }
 
 .weather-information {
-  margin: 10px auto;
+  margin: 0 auto; /* Centreer de inhoud horizontaal */
   padding: 20px;
-  background: #2d2d2d;
-
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: #2d2d2d; /* Achtergrondkleur */
+  border-radius: 10px; /* Ronde hoeken */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Schaduw */
 }
 
-.wrapper {
-  display: block;
+/* Responsiveness voor tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column; /* Plaatst de items onder elkaar */
+    align-items: center; /* Centreert de items */
+  }
+
+  #map-container,
+  #Weather {
+    max-width: 90%; /* Breder op tablets */
+  }
+
+  #map {
+    height: 250px; /* Iets kleinere kaart op tablets */
+  }
+}
+
+/* Responsiveness voor mobiele apparaten (max-width: 576px) */
+@media (max-width: 576px) {
+  #map {
+    height: 200px; /* Nog kleinere hoogte op mobiel */
+  }
+
+  .weather-information {
+    padding: 15px; /* Minder padding op mobiel */
+  }
 }
 
 /* Footer left */
